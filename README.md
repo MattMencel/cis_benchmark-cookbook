@@ -6,7 +6,7 @@ Applies the Center for Internet Security's Benchmark at configuration recommenda
 Disclaimers and Caveats
 ====
 
-This cookbook is very opinionated. It is based on my interpretation of the CIS Benchmarks.
+This cookbook is very opinionated. It is based on our interpretation of the CIS Benchmarks.
 
 Where appropriate, benchmark recommendations that are scorable are implemented. Recommendations that cannot be determined via automated means are not implemented. Some recommendations that fall outside the purview of Chef are not implemented, such as partioning layouts, as those are generally handled better by provisioning systems like Kickstart. Opscode provides a kickstart cookbook which can be customized as needed.
 
@@ -14,12 +14,13 @@ It is up to the end user to read and understand the full CIS Benchmark's recomme
 
 The NOTES file in this cookbook includes additional notes about recommendations not implemented.
 
-Though I am an Opscode employee, this cookbook is not an Opscode project. It is only supported on a best effort basis.
+This cookbook is not an Opscode project. It is only supported on a best effort basis.
 
-SELinux
+SELinux (RHEL)
 ----
 
-As the CIS Benchmark recommends enabling selinux, this cookbook keeps it enabled. This may affect the functionality of other cookbooks used on the system, which may require modification for any software they install to be configured for SELinux.
+As the CIS Benchmark recommends enabling selinux, the Red Hat recipes keep it enabled. This may affect the functionality of other cookbooks used on the system, which may require modification for any software they install to be configured for SELinux.
+
 
 CIS Benchmarks
 ====
@@ -95,7 +96,7 @@ The recipes in this cookbook apply the benchmark's default settings, somewhat bl
 Version History
 ====
 
-## v.0.0.1:
+## v.0.0.2:
 
 * Initial release.
 
