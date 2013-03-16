@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: cis_benchmark
-# Recipe:: default
+# Recipe:: debian_ssh
 #
 # Copyright 2011, Joshua Timberman
 #
@@ -16,22 +16,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# CIS Debian Benchmark section 2.3: Configure SSH
 
-case node['platform']
-when "redhat", "centos", "fedora", "scientifc"
+%w{ openssh openssh-clients openssh-server }.each do |pkg|
 
-  Chef::Log.info("Platform is a Red Hat family Linux distribution, including recipe[cis_benchmark::redhat]")
-  include_recipe "cis_benchmark::redhat"
+  package pkg do
+    action :upgrade
+  end
+  
+end
 
-when "debian", "ubuntu"
-
-  Chef::Log.info("Platform is a Debian family Linux distribution, including recipe[cis_benchmark::debian]")
-  include_recipe "cis_benchmark::debian"
-
-else
-
-  Chef::Log.warn("Platform #{node['platform']} is not supported at this time.")
-  return
+%w{ ssh_config sshd_config }.each do |conf|
+  
+  template "/etc/ssh/#{conf}" do
+    source "#{conf}.erb"
+    mode 0600
+    owner "root"
+    group "root"
+    notifies :reload, "service[sshd]", :immediately
+  end
 
 end
 
+service "sshd" do
+  supports :restart => true, :reload => true, :status => true
+  action [ :enable, :start ]
+end

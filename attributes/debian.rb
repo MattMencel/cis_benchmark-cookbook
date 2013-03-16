@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: cis_benchmark
-# Recipe:: default
+# Attributes:: debian
 #
 # Copyright 2011, Joshua Timberman
 #
@@ -17,21 +17,31 @@
 # limitations under the License.
 #
 
-case node['platform']
-when "redhat", "centos", "fedora", "scientifc"
+default['cis_benchmark']['debian']['disabled_services'] = %w{
+  atd
+  bind
+  bluez-utilz
+  cupsys
+  exim4
+  haldaemon
+  hpoj
+  hotplug
+  inetd
+  kdump
+  lpd
+  netfs
+  nis
+  nfs-common
+  nfs-kernel-server
+  nfs-user-server
+  pcmcia
+  popa3d
+  portmap
+  rdisc
+  saslauthd
+  vsftpd
+  wu-ftpd
+  xfs
+}
 
-  Chef::Log.info("Platform is a Red Hat family Linux distribution, including recipe[cis_benchmark::redhat]")
-  include_recipe "cis_benchmark::redhat"
-
-when "debian", "ubuntu"
-
-  Chef::Log.info("Platform is a Debian family Linux distribution, including recipe[cis_benchmark::debian]")
-  include_recipe "cis_benchmark::debian"
-
-else
-
-  Chef::Log.warn("Platform #{node['platform']} is not supported at this time.")
-  return
-
-end
-
+default['cis_benchmark']['debian']['cron_allow'] = ["root"]

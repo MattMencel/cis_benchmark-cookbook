@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: cis_benchmark
-# Recipe:: default
+# Cookbook Name:: cis-benchmark
+# Recipe:: debian_minimize_boot
 #
 # Copyright 2011, Joshua Timberman
 #
@@ -17,21 +17,10 @@
 # limitations under the License.
 #
 
-case node['platform']
-when "redhat", "centos", "fedora", "scientifc"
+node['cis_benchmark']['debian']['disabled_services'].each do |svc|
 
-  Chef::Log.info("Platform is a Red Hat family Linux distribution, including recipe[cis_benchmark::redhat]")
-  include_recipe "cis_benchmark::redhat"
-
-when "debian", "ubuntu"
-
-  Chef::Log.info("Platform is a Debian family Linux distribution, including recipe[cis_benchmark::debian]")
-  include_recipe "cis_benchmark::debian"
-
-else
-
-  Chef::Log.warn("Platform #{node['platform']} is not supported at this time.")
-  return
+  service svc do
+    action [:stop, :disable]
+  end
 
 end
-

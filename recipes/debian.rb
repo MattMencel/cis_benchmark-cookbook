@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: cis_benchmark
-# Recipe:: default
+# Recipe:: debian
 #
 # Copyright 2011, Joshua Timberman
 #
@@ -18,15 +18,22 @@
 #
 
 case node['platform']
-when "redhat", "centos", "fedora", "scientifc"
-
-  Chef::Log.info("Platform is a Red Hat family Linux distribution, including recipe[cis_benchmark::redhat]")
-  include_recipe "cis_benchmark::redhat"
-
 when "debian", "ubuntu"
+  
+  directory "/root" do
+    owner "root"
+    group "root"
+    mode 0700
+  end
 
-  Chef::Log.info("Platform is a Debian family Linux distribution, including recipe[cis_benchmark::debian]")
-  include_recipe "cis_benchmark::debian"
+  include_recipe "cis_benchmark::debian_ssh"
+  include_recipe "cis_benchmark::debian_minimize_boot"
+  include_recipe "cis_benchmark::debian_sysacct"
+  include_recipe "cis_benchmark::debian_sysctl"
+  include_recipe "cis_benchmark::debian_permissions"
+  include_recipe "cis_benchmark::debian_cron_allow"
+  include_recipe "cis_benchmark::debian_banner"
+  
 
 else
 

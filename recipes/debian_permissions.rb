@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: cis_benchmark
-# Recipe:: default
+# Cookbook Name:: cis-benchmark
+# Recipe:: debian_permissions
 #
 # Copyright 2011, Joshua Timberman
 #
@@ -17,21 +17,18 @@
 # limitations under the License.
 #
 
-case node['platform']
-when "redhat", "centos", "fedora", "scientifc"
-
-  Chef::Log.info("Platform is a Red Hat family Linux distribution, including recipe[cis_benchmark::redhat]")
-  include_recipe "cis_benchmark::redhat"
-
-when "debian", "ubuntu"
-
-  Chef::Log.info("Platform is a Debian family Linux distribution, including recipe[cis_benchmark::debian]")
-  include_recipe "cis_benchmark::debian"
-
-else
-
-  Chef::Log.warn("Platform #{node['platform']} is not supported at this time.")
-  return
-
+%w{ passwd group }.each do |f|
+  file "/etc/#{f}" do
+    owner "root"
+    group "root"
+    mode 0644
+  end
 end
 
+%w{ shadow gshadow }.each do |f|
+  file "/etc/#{f}" do
+    owner "root"
+    group "root"
+    mode 0600
+  end
+end

@@ -17,6 +17,7 @@
 # limitations under the License.
 #
 
+
 default['cis_benchmark']['redhat']['disabled_services'] = %w{
   atd
   cpuspeed

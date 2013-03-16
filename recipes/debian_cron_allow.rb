@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: cis_benchmark
-# Recipe:: default
+# Cookbook Name:: cis-benchmark
+# Recipe:: debian_cron_allow
 #
 # Copyright 2011, Joshua Timberman
 #
@@ -16,22 +16,33 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# CIS Debian Benchmark section 8.4, 8.5: Configure Cron
 
-case node['platform']
-when "redhat", "centos", "fedora", "scientifc"
-
-  Chef::Log.info("Platform is a Red Hat family Linux distribution, including recipe[cis_benchmark::redhat]")
-  include_recipe "cis_benchmark::redhat"
-
-when "debian", "ubuntu"
-
-  Chef::Log.info("Platform is a Debian family Linux distribution, including recipe[cis_benchmark::debian]")
-  include_recipe "cis_benchmark::debian"
-
-else
-
-  Chef::Log.warn("Platform #{node['platform']} is not supported at this time.")
-  return
-
+%w{ at cron }.each do |f|
+  file "/etc/#{f}.allow" do
+    content node['cis_benchmark']['debian']['cron_allow'].join("\n")
+    owner "root"
+    group "root"
+    mode 0400
+  end
 end
 
+file "/etc/crontab" do
+  owner "root"
+  group "root"
+  mode 0400
+end
+
+directory "/var/spool/cron" do
+  owner "root"
+  group "root"
+  mode 0700
+end
+
+%w{ d hourly daily weekly monthly }.each do |d|
+  directory "/etc/cron.#{d}" do
+    owner "root"
+    group "root"
+    mode 0700
+  end
+end
