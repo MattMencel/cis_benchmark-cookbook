@@ -42,37 +42,47 @@ Firewall configuration is out of scope for now.
 
 TCP Wrappers are monolithic files and currently outside the scope of
 this cookbook.
+** 3.3 Telnet
+Not applicable, telnet is not enabled by default
+** 3.4 Telnet
+Not applicable, ftp is not enabled by default
+** 3.5 RLogin/RSH/RCP
+Not applicable, r-services are not enabled by default
+** 3.6 TFTP
+Not applicable, tftp-server is not enabled by default
+** 3.7 IMAP
+Not applicable, imapd is not enabled by default
+** 3.8 POP
+Not applicable, popd is not enabled by default
+** 3.9 IDENT
+Not applicable, ident is not installed by default
 * 4 Minimize boot services
-** 4.1 Daemon umask
-Level II, not implemented.
-** 4.2 Disable xinetd
+** 4.1 Disable xinetd
 See #3 above.
-** 4.3 Sendmail
+** 4.2 Sendmail
 Sendmail has been replaced by postfix. Custom configuration for
 postfix should be done with a separate cookbook, for example:
 
 http://community.opscode.com/cookbooks/postfix
-** 4.4 Disable GUI login
+** 4.3 Disable GUI login
 Not applicable. GUI not installed by default.
-** 4.5 Disable X Font Server
+** 4.4 Disable X Font Server
 Not applicable. XFS not installed by default.
-** 4.6 Disable standard boot services
+** 4.5 Disable standard boot services
 Not applicable. This is already the default posture per above.
-** 4.7 Samba
+** 4.6 Samba
 Not applicable. Samba not installed by default.
-** 4.8-12 NFS, NIS, Portmap
+** 4.7-11 NFS, NIS, Portmap
 Not applicable. These services are not installed by default.
-** 4.13 Netfs
-In the default disabled services list.
-** 4.14 Printer daemons
+** 4.12 Printer daemons
 Not applicable. Printer daemon not enabled by default.
-** 4.15 Web server
+** 4.13 Web server
 See above. Use a cookbook to enable HTTPD, e.g.:
 
 http://community.opscode.com/cookbooks/apache2
-** 4.16 SNMP
+** 4.14 SNMP
 Not applicable. SNMP is not installed by default.
-** 4.17 DNS
+** 4.15 DNS
 See above. Use a cookbook to run a DNS server, e.g.:
 
 http://community.opscode.com/cookbooks/djbdns
@@ -82,7 +92,7 @@ http://community.opscode.com/cookbooks/maradns
 
 BIND is conspicuously missing. It also has the worst security track
 record of any DNS service.
-** 4.18 SQL Databases
+** 4.16 SQL Databases
 See above. Use a cookbook for the desired database if required,
 e.g.:
 
@@ -92,13 +102,11 @@ http://community.opscode.com/cookbooks/postgresql
 Or if "NoSQL" is your flavor:
 http://community.opscode.com/cookbooks/riak
 http://community.opscode.com/cookbooks/couchdb
-** 4.19 Squid
+** 4.17 Webmin
+Not applicable. Webmin is not installed by default.
+** 4.18 Squid
 Not applicable. Squid is not installed by default.
-** 4.20 Kudzu
-Not applicable. Kudzu is not enabled by default. HalD is already in
-the disabled services list.
-** 4.21-22 IMAP-cyrus or dovecot
-Not applicable. IMAP is not installed by default.
+
 * 5 System network parameters
 ** 5.1-2 Network parameters (sysctl.conf)
 
