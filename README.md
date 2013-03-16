@@ -6,7 +6,7 @@ Applies the Center for Internet Security's Benchmark at configuration recommenda
 Disclaimers and Caveats
 ====
 
-This cookbook is very opinionated. It is based on our interpretation of the CIS Benchmarks.
+This cookbook is very opinionated. It is based on an interpretation of the CIS Benchmarks.
 
 Where appropriate, benchmark recommendations that are scorable are implemented. Recommendations that cannot be determined via automated means are not implemented. Some recommendations that fall outside the purview of Chef are not implemented, such as partioning layouts, as those are generally handled better by provisioning systems like Kickstart. Opscode provides a kickstart cookbook which can be customized as needed.
 
@@ -96,9 +96,14 @@ The recipes in this cookbook apply the benchmark's default settings, somewhat bl
 Version History
 ====
 
-## v.0.0.2:
+## v.0.0.1:
 
 * Initial release.
+
+## v.0.0.2:
+
+* Initial attempt at Debian/Ubuntu support.
+
 
 Contributing
 ====
