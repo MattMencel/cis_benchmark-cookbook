@@ -17,4 +17,4 @@
 # limitations under the License.
 #
 
-default['cis_benchmark']['company'] = "Western Illinois University"
+default['cis_benchmark']['company'] = "COMPANY NAME"

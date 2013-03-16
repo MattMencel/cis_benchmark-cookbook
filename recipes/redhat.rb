@@ -32,7 +32,7 @@ when "redhat", "centos", "fedora", "scientifc"
   include_recipe "cis_benchmark::redhat_sysctl"
   include_recipe "cis_benchmark::redhat_permissions"
   include_recipe "cis_benchmark::redhat_cron_allow"
-  include_recipe "cis_benchmark::redhat_banner"
+  include_recipe "cis_benchmark::banner"
   
 
 else

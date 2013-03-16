@@ -32,7 +32,7 @@ when "debian", "ubuntu"
   include_recipe "cis_benchmark::debian_sysctl"
   include_recipe "cis_benchmark::debian_permissions"
   include_recipe "cis_benchmark::debian_cron_allow"
-  include_recipe "cis_benchmark::debian_banner"
+  include_recipe "cis_benchmark::banner"
   
 
 else
