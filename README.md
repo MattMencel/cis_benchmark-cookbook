@@ -33,7 +33,14 @@ The benchmarks used for this cookbook:
     Copyright 2001-2009, The Center for Internet Security
     feedback@cisecurity.org
 
-Benchmarks for other platforms will be implemented in the future.
+    Center for Internet Security Benchmark for Debian Linux v1.0 August, 2007
+	Copyright 2001-2007, The Center for Internet Security (CIS) 
+	Editor: Blake Frantz 
+	Leviathan Security Group 
+	http://cisecurity.org
+	cis-feedback@cisecurity.org
+
+Benchmarks for other platforms may be implemented in the future.
 
 Development of this cookbook was not sponsored or endorsed by the Center for Internet Security.
 

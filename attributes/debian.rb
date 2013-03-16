@@ -19,29 +19,12 @@
 
 default['cis_benchmark']['debian']['disabled_services'] = %w{
   atd
-  bind
-  bluez-utilz
-  cupsys
-  exim4
+  cpuspeed
   haldaemon
-  hpoj
-  hotplug
-  inetd
   kdump
-  lpd
   netfs
-  nis
-  nfs-common
-  nfs-kernel-server
-  nfs-user-server
-  pcmcia
-  popa3d
-  portmap
   rdisc
   saslauthd
-  vsftpd
-  wu-ftpd
-  xfs
 }
 
 default['cis_benchmark']['debian']['cron_allow'] = ["root"]

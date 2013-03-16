@@ -26,19 +26,19 @@ service "sysstat" do
   action [:enable,:start]
 end
 
-# package "audit" do
-#   action :upgrade
-# end
+package "audit" do
+  action :upgrade
+end
 
-# template "/etc/audit/audit.rules" do
-#   source "audit.rules.erb"
-#   owner "root"
-#   group "root"
-#   mode 0644
-#   notifies :restart, "service[auditd]"
-# end
+template "/etc/audit/audit.rules" do
+  source "audit.rules.erb"
+  owner "root"
+  group "root"
+  mode 0644
+  notifies :restart, "service[auditd]"
+end
 
-# service "auditd" do
-#   supports :restart => true, :reload => true, :status => true
-#   action [:enable,:start]
-# end
+service "auditd" do
+  supports :restart => true, :reload => true, :status => true
+  action [:enable,:start]
+end
