@@ -162,15 +162,17 @@ Not applicable. X11 is not installed by default.
 atd is disabled above by default. If it is enabled (removed from
 disabled list and a specific recipe added?), only authorized users
 hould use it.
-** 8.6 Restrict root login to console
+** 8.6 Configure xintd Access Control
+See #3 above.
+** 8.7 Restrict root login to console
 See above under SSH exceptions.
-** 8.7 Grub password
+** 8.8 Grub password
 Not implemented. Currently out of scope.
-** 8.8 Require auth for single user mode
+** 8.9 Require auth for single user mode
 Not implemented. Currently out of scope.
-** 8.9 Restrict NFS clients
+** 8.10 Restrict NFS clients
 Not applicable. NFS is not installed by default.
-** 8.10 Enable syslog to accept messages
+** 8.11 Enable syslog to accept messages
 Not applicable. Use `rsyslog` cookbook.
 
 http://community.opscode.com/cookbooks/rsyslog
@@ -188,8 +190,8 @@ http://community.opscode.com/cookbooks/users
 http://community.opscode.com/cookbooks/sudo
 http://community.opscode.com/cookbooks/openldap
 * 10 Warning banners
-Change the node attribute `node['cis_benchmark']['company']` to your
-company/organization name.
+Change the node attribute `node['cis_benchmark']['banner']` to your
+company/organization login banner.
 
 You may also want to create /etc/motd using the motd-tail cookbook:
 
