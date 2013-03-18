@@ -18,7 +18,7 @@
 #
 # CIS Debian Benchmark section 2.3: Configure SSH
 
-%w{ openssh openssh-clients openssh-server }.each do |pkg|
+%w{ openssh-client openssh-server }.each do |pkg|
 
   package pkg do
     action :upgrade
