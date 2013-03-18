@@ -33,12 +33,12 @@ end
     mode 0600
     owner "root"
     group "root"
-    notifies :reload, "service[sshd]", :immediately
+    notifies :reload, "service[ssh]", :immediately
   end
 
 end
 
-service "sshd" do
+service "ssh" do
   supports :restart => true, :reload => true, :status => true
   action [ :enable, :start ]
 end
