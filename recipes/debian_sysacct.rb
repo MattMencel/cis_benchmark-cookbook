@@ -26,7 +26,7 @@ service "sysstat" do
   action [:enable,:start]
 end
 
-package "audit" do
+package "auditd" do
   action :upgrade
 end
 
