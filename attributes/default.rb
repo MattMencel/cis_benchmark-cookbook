@@ -20,3 +20,6 @@
 default['cis_benchmark']['company'] = "COMPANY NAME"
 
 default['cis_benchmark']['banner'] = "COMPANY BANNER"
+
+default['cis_benchmark']['cron_allow'] = ["root"]
+

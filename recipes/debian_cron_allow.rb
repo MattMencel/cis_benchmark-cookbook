@@ -20,7 +20,7 @@
 
 %w{ at cron }.each do |f|
   file "/etc/#{f}.allow" do
-    content node['cis_benchmark']['debian']['cron_allow'].join("\n")
+    content node['cis_benchmark']['cron_allow'].join("\n")
     owner "root"
     group "root"
     mode 0400

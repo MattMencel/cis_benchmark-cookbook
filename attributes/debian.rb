@@ -26,5 +26,3 @@ default['cis_benchmark']['debian']['disabled_services'] = %w{
   rdisc
   saslauthd
 }
-
-default['cis_benchmark']['debian']['cron_allow'] = ["root"]
