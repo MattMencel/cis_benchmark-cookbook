@@ -21,5 +21,5 @@ default['cis_benchmark']['company'] = "COMPANY NAME"
 
 default['cis_benchmark']['banner'] = "COMPANY BANNER"
 
-override['cis_benchmark']['cron_allow'] = ["root"]
+normal['cis_benchmark']['cron_allow'] = ["root"]
 
