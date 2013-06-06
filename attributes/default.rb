@@ -16,11 +16,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-include_attribute 'wiuzimbra::cis'
 
 default['cis_benchmark']['company'] = "COMPANY NAME"
 
 default['cis_benchmark']['banner'] = "COMPANY BANNER"
 
-default['cis_benchmark']['cron_allow'] = ["root"]
+override['cis_benchmark']['cron_allow'] = ["root"]
 
