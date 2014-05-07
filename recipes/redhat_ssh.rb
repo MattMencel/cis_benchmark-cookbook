@@ -18,16 +18,16 @@
 #
 # CIS RH Benchmark section 2.3: Configure SSH
 
-%w{ openssh openssh-clients openssh-server }.each do |pkg|
+%w{ openssh openssh-clients openssh-server openssl}.each do |pkg|
 
   package pkg do
     action :upgrade
   end
-  
+
 end
 
 %w{ ssh_config sshd_config }.each do |conf|
-  
+
   template "/etc/ssh/#{conf}" do
     source "#{conf}.erb"
     mode 0600
