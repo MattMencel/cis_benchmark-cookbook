@@ -1,3 +1,4 @@
-site "https://github.com/MattMencel/cis_benchmark-cookbook"
+source "https://api.berkshelf.com"
+
 
 metadata
