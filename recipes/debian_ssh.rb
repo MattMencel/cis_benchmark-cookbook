@@ -18,27 +18,26 @@
 #
 # CIS Debian Benchmark section 2.3: Configure SSH
 
-%w{ openssh-client openssh-server openssl }.each do |pkg|
-
+%w(openssh-client openssh-server openssl).each do |pkg|
   package pkg do
     action :upgrade
   end
-
 end
 
-%w{ ssh_config sshd_config }.each do |conf|
+%w(ssh_config sshd_config).each do |conf|
 
   template "/etc/ssh/#{conf}" do
     source "#{conf}.erb"
     mode 0600
-    owner "root"
-    group "root"
-    notifies :reload, "service[ssh]", :immediately
+    owner 'root'
+    group 'root'
+    notifies :reload, 'service[ssh]', :immediately
   end
 
 end
 
-service "ssh" do
-  supports :restart => true, :reload => true, :status => true
-  action [ :enable, :start ]
+service 'ssh' do
+  provider Chef::Provider::Service::Upstart
+  supports restart: true, reload: true, status: true
+  action [:enable, :start]
 end

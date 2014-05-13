@@ -18,7 +18,7 @@
 #
 # CIS RH Benchmark section 2.3: Configure SSH
 
-%w{ openssh openssh-clients openssh-server openssl}.each do |pkg|
+%w(openssh openssh-clients openssh-server openssl).each do |pkg|
 
   package pkg do
     action :upgrade
@@ -26,19 +26,19 @@
 
 end
 
-%w{ ssh_config sshd_config }.each do |conf|
+%w(ssh_config sshd_config).each do |conf|
 
   template "/etc/ssh/#{conf}" do
     source "#{conf}.erb"
     mode 0600
-    owner "root"
-    group "root"
-    notifies :reload, "service[sshd]", :immediately
+    owner 'root'
+    group 'root'
+    notifies :reload, 'service[sshd]', :immediately
   end
 
 end
 
-service "sshd" do
-  supports :restart => true, :reload => true, :status => true
-  action [ :enable, :start ]
+service 'sshd' do
+  supports restart: true, reload: true, status: true
+  action [:enable, :start]
 end

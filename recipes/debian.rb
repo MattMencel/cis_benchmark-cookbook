@@ -18,22 +18,21 @@
 #
 
 case node['platform']
-when "debian", "ubuntu"
-  
-  directory "/root" do
-    owner "root"
-    group "root"
+when 'debian', 'ubuntu'
+
+  directory '/root' do
+    owner 'root'
+    group 'root'
     mode 0700
   end
 
-  include_recipe "cis_benchmark::debian_ssh"
-  include_recipe "cis_benchmark::debian_minimize_boot"
-  include_recipe "cis_benchmark::debian_sysacct"
-  include_recipe "cis_benchmark::debian_sysctl"
-  include_recipe "cis_benchmark::debian_permissions"
-  include_recipe "cis_benchmark::debian_cron_allow"
-  include_recipe "cis_benchmark::banner"
-  
+  include_recipe 'cis_benchmark::debian_ssh'
+  include_recipe 'cis_benchmark::debian_minimize_boot'
+  include_recipe 'cis_benchmark::debian_sysacct'
+  include_recipe 'cis_benchmark::debian_sysctl'
+  include_recipe 'cis_benchmark::debian_permissions'
+  include_recipe 'cis_benchmark::debian_cron_allow'
+  include_recipe 'cis_benchmark::banner'
 
 else
 
@@ -41,4 +40,3 @@ else
   return
 
 end
-

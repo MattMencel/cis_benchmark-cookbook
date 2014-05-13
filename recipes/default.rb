@@ -18,15 +18,17 @@
 #
 
 case node['platform']
-when "redhat", "centos", "fedora", "scientifc"
+when 'redhat', 'centos', 'fedora', 'scientific'
 
-  Chef::Log.info("Platform is a Red Hat family Linux distribution, including recipe[cis_benchmark::redhat]")
-  include_recipe "cis_benchmark::redhat"
+  Chef::Log.info('Platform is a Red Hat family Linux distribution, including\
+   recipe[cis_benchmark::redhat]')
+  include_recipe 'cis_benchmark::redhat'
 
-when "debian", "ubuntu"
+when 'debian', 'ubuntu'
 
-  Chef::Log.info("Platform is a Debian family Linux distribution, including recipe[cis_benchmark::debian]")
-  include_recipe "cis_benchmark::debian"
+  Chef::Log.info('Platform is a Debian family Linux distribution, including\
+   recipe[cis_benchmark::debian]')
+  include_recipe 'cis_benchmark::debian'
 
 else
 
@@ -34,4 +36,3 @@ else
   return
 
 end
-

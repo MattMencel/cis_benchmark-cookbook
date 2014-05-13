@@ -17,8 +17,7 @@
 # limitations under the License.
 #
 
-
-default['cis_benchmark']['redhat']['disabled_services'] = %w{
+default['cis_benchmark']['redhat']['disabled_services'] = %w(
   atd
   cpuspeed
   haldaemon
@@ -26,6 +25,6 @@ default['cis_benchmark']['redhat']['disabled_services'] = %w{
   netfs
   rdisc
   saslauthd
-}
+)
 
-default['cis_benchmark']['redhat']['cron_allow'] = ["root"]
+default['cis_benchmark']['redhat']['cron_allow'] = ['root']

@@ -17,28 +17,28 @@
 # limitations under the License.
 #
 
-package "sysstat" do
+package 'sysstat' do
   action :upgrade
 end
 
-service "sysstat" do
-  supports :restart => true, :reload => true, :status => true
-  action [:enable,:start]
+service 'sysstat' do
+  supports restart: true, reload: true, status: true
+  action [:enable, :start]
 end
 
-package "auditd" do
+package 'auditd' do
   action :upgrade
 end
 
-template "/etc/audit/audit.rules" do
-  source "audit.rules.erb"
-  owner "root"
-  group "root"
+template '/etc/audit/audit.rules' do
+  source 'audit.rules.erb'
+  owner 'root'
+  group 'root'
   mode 0644
-  notifies :restart, "service[auditd]"
+  notifies :restart, 'service[auditd]'
 end
 
-service "auditd" do
-  supports :restart => true, :reload => true, :status => true
-  action [:enable,:start]
+service 'auditd' do
+  supports restart: true, reload: true, status: true
+  action [:enable, :start]
 end

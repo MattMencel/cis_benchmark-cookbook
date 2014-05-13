@@ -17,18 +17,18 @@
 # limitations under the License.
 #
 
-%w{ passwd group }.each do |f|
+%w(passwd group).each do |f|
   file "/etc/#{f}" do
-    owner "root"
-    group "root"
+    owner 'root'
+    group 'root'
     mode 0644
   end
 end
 
-%w{ shadow gshadow }.each do |f|
+%w(shadow gshadow).each do |f|
   file "/etc/#{f}" do
-    owner "root"
-    group "root"
+    owner 'root'
+    group 'root'
     mode 0600
   end
 end

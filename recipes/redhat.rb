@@ -18,22 +18,21 @@
 #
 
 case node['platform']
-when "redhat", "centos", "fedora", "scientifc"
-  
-  directory "/root" do
-    owner "root"
-    group "root"
+when 'redhat', 'centos', 'fedora', 'scientifc'
+
+  directory '/root' do
+    owner 'root'
+    group 'root'
     mode 0700
   end
 
-  include_recipe "cis_benchmark::redhat_ssh"
-  include_recipe "cis_benchmark::redhat_minimize_boot"
-  include_recipe "cis_benchmark::redhat_sysacct"
-  include_recipe "cis_benchmark::redhat_sysctl"
-  include_recipe "cis_benchmark::redhat_permissions"
-  include_recipe "cis_benchmark::redhat_cron_allow"
-  include_recipe "cis_benchmark::banner"
-  
+  include_recipe 'cis_benchmark::redhat_ssh'
+  include_recipe 'cis_benchmark::redhat_minimize_boot'
+  include_recipe 'cis_benchmark::redhat_sysacct'
+  include_recipe 'cis_benchmark::redhat_sysctl'
+  include_recipe 'cis_benchmark::redhat_permissions'
+  include_recipe 'cis_benchmark::redhat_cron_allow'
+  include_recipe 'cis_benchmark::banner'
 
 else
 
@@ -41,4 +40,3 @@ else
   return
 
 end
-

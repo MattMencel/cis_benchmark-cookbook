@@ -1,10 +1,10 @@
-desc "Creates a new recipe for specified platform."
-task :create, :platform, :recipe do |t, args|
+desc 'Creates a new recipe for specified platform.'
+task :create, :platform, :recipe do |_t, args|
 
   platform = args.platform
   recipe = args.recipe
   filename = "#{platform}_#{recipe}"
-  filepath = File.join(".", "recipes", "#{filename}.rb")
+  filepath = File.join('.', 'recipes', "#{filename}.rb")
   comment = <<-EOF
 #
 # Cookbook Name:: cis-benchmark
@@ -25,5 +25,5 @@ task :create, :platform, :recipe do |t, args|
 # limitations under the License.
 #
 EOF
-  File.open(filepath, "w") {|f| f.puts comment}
+  File.open(filepath, 'w') { |f| f.puts comment }
 end

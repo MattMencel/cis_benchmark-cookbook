@@ -17,31 +17,31 @@
 # limitations under the License.
 #
 
-%w{ at cron }.each do |f|
+%w(at cron).each do |f|
   file "/etc/#{f}.allow" do
     content node['cis_benchmark']['cron_allow'].join("\n")
-    owner "root"
-    group "root"
+    owner 'root'
+    group 'root'
     mode 0400
   end
 end
 
-file "/etc/crontab" do
-  owner "root"
-  group "root"
+file '/etc/crontab' do
+  owner 'root'
+  group 'root'
   mode 0400
 end
 
-directory "/var/spool/cron" do
-  owner "root"
-  group "root"
+directory '/var/spool/cron' do
+  owner 'root'
+  group 'root'
   mode 0700
 end
 
-%w{ d hourly daily weekly monthly }.each do |d|
+%w(d hourly daily weekly monthly).each do |d|
   directory "/etc/cron.#{d}" do
-    owner "root"
-    group "root"
+    owner 'root'
+    group 'root'
     mode 0700
   end
 end

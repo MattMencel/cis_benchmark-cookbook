@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-default['cis_benchmark']['debian']['disabled_services'] = %w{
+default['cis_benchmark']['debian']['disabled_services'] = %w(
   atd
   cpuspeed
   haldaemon
@@ -25,4 +25,4 @@ default['cis_benchmark']['debian']['disabled_services'] = %w{
   netfs
   rdisc
   saslauthd
-}
+)

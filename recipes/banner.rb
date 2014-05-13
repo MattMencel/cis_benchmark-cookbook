@@ -17,9 +17,9 @@
 # limitations under the License.
 #
 
-template "/etc/issue.net" do
-  source "issue.net.erb"
-  owner "root"
-  group "root"
+template '/etc/issue.net' do
+  source 'issue.net.erb'
+  owner 'root'
+  group 'root'
   mode 0644
 end
