@@ -17,7 +17,12 @@
 # limitations under the License.
 #
 
-execute 'sysctl -w net.ipv4.tcp_max_syn_backlog=4096'
+node.default[:sysctl][:params][:ipv4][:tcp_max_syn_backlog] = 4096
+node.default[:sysctl][:params][:ipv4][:ip_forward] = 0
+
+include_recipe 'sysctl::apply'
+
+#execute 'sysctl -w net.ipv4.tcp_max_syn_backlog=4096'
 execute 'sysctl -w net.ipv4.tcp_syncookies=1'
 execute 'sysctl -w net.ipv4.conf.all.rp_filter=1'
 execute 'sysctl -w net.ipv4.conf.all.accept_source_route=0'
@@ -28,6 +33,6 @@ execute 'sysctl -w net.ipv4.conf.default.accept_source_route=0'
 execute 'sysctl -w net.ipv4.conf.default.accept_redirects=0'
 execute 'sysctl -w net.ipv4.conf.default.secure_redirects=0'
 execute 'sysctl -w net.ipv4.icmp_echo_ignore_broadcasts=1'
-execute 'sysctl -w net.ipv4.ip_forward=0'
+#execute 'sysctl -w net.ipv4.ip_forward=0'
 execute 'sysctl -w net.ipv4.conf.all.send_redirects=0'
 execute 'sysctl -w net.ipv4.conf.default.send_redirects=0'
