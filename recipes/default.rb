@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-case node['platform']
+case node[:platform]
 when 'redhat', 'centos', 'fedora', 'scientific'
 
   Chef::Log.info('Platform is a Red Hat family Linux distribution, including\
@@ -32,7 +32,7 @@ when 'debian', 'ubuntu'
 
 else
 
-  Chef::Log.warn("Platform #{node['platform']} is not supported at this time.")
+  Chef::Log.warn("Platform #{node[:platform]} is not supported at this time.")
   return
 
 end

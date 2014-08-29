@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: cis_benchmark
-# Attributes:: debian
+# Cookbook Name:: cis-benchmark
+# Recipe:: debian_sysctl
 #
 # Copyright 2011, Joshua Timberman
 #
@@ -17,12 +17,4 @@
 # limitations under the License.
 #
 
-default[:cis_benchmark][:debian][:disabled_services] = %w(
-  atd
-  cpuspeed
-  haldaemon
-  kdump
-  netfs
-  rdisc
-  saslauthd
-)
+include_recipe 'sysctl::apply'

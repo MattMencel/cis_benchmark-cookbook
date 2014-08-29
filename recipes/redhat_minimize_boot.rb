@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-node['cis_benchmark']['redhat']['disabled_services'].each do |svc|
+node[:cis_benchmark][:redhat][:disabled_services].each do |svc|
 
   service svc do
     action [:stop, :disable]

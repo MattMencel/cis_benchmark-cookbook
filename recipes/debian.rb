@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-case node['platform']
+case node[:platform]
 when 'debian', 'ubuntu'
 
   directory '/root' do
@@ -29,14 +29,14 @@ when 'debian', 'ubuntu'
   include_recipe 'cis_benchmark::debian_ssh'
   include_recipe 'cis_benchmark::debian_minimize_boot'
   include_recipe 'cis_benchmark::debian_sysacct'
-  include_recipe 'cis_benchmark::debian_sysctl'
+  include_recipe 'cis_benchmark::sysctl'
   include_recipe 'cis_benchmark::debian_permissions'
   include_recipe 'cis_benchmark::debian_cron_allow'
   include_recipe 'cis_benchmark::banner'
 
 else
 
-  Chef::Log.warn("Platform #{node['platform']} is not supported at this time.")
+  Chef::Log.warn("Platform #{node[:platform]} is not supported at this time.")
   return
 
 end

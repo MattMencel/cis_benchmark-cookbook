@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-default['cis_benchmark']['redhat']['disabled_services'] = %w(
+default[:cis_benchmark][:redhat][:disabled_services] = %w(
   atd
   cpuspeed
   haldaemon
@@ -27,4 +27,6 @@ default['cis_benchmark']['redhat']['disabled_services'] = %w(
   saslauthd
 )
 
-default['cis_benchmark']['redhat']['cron_allow'] = ['root']
+if node[:platform_family] == 'rhel'
+  default[:sysctl][:params][:ipv4][:icmp_ignore_bogus_error_responses] = 1
+end

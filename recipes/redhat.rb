@@ -17,8 +17,8 @@
 # limitations under the License.
 #
 
-case node['platform']
-when 'redhat', 'centos', 'fedora', 'scientifc'
+case node[:platform]
+when 'redhat', 'centos', 'fedora', 'scientific'
 
   directory '/root' do
     owner 'root'
@@ -29,14 +29,14 @@ when 'redhat', 'centos', 'fedora', 'scientifc'
   include_recipe 'cis_benchmark::redhat_ssh'
   include_recipe 'cis_benchmark::redhat_minimize_boot'
   include_recipe 'cis_benchmark::redhat_sysacct'
-  include_recipe 'cis_benchmark::redhat_sysctl'
+  include_recipe 'cis_benchmark::sysctl'
   include_recipe 'cis_benchmark::redhat_permissions'
   include_recipe 'cis_benchmark::redhat_cron_allow'
   include_recipe 'cis_benchmark::banner'
 
 else
 
-  Chef::Log.warn("Platform #{node['platform']} is not supported at this time.")
+  Chef::Log.warn("Platform #{node[:platform]} is not supported at this time.")
   return
 
 end
