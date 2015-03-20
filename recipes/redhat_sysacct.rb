@@ -40,5 +40,6 @@ end
 
 service 'auditd' do
   supports restart: true, reload: true, status: true
+  provider Chef::Provider::Service::Init::Redhat
   action [:enable, :start]
 end
