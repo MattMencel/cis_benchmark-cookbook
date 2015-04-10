@@ -11,4 +11,4 @@ version '0.0.14'
   supports os
 end
 
-depends 'sysctl', '~> 0.6'
+depends 'sysctl', '~> 0.6.0'
