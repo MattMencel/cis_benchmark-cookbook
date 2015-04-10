@@ -24,7 +24,7 @@
   end
 end
 
-%w(ssh_config sshd_config).each do |conf|
+%w(ssh_config).each do |conf|
 
   template "/etc/ssh/#{conf}" do
     source "#{conf}.erb"
