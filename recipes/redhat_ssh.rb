@@ -19,15 +19,12 @@
 # CIS RH Benchmark section 2.3: Configure SSH
 
 %w(openssh openssh-clients openssh-server openssl).each do |pkg|
-
   package pkg do
     action :upgrade
   end
-
 end
 
 %w(ssh_config).each do |conf|
-
   template "/etc/ssh/#{conf}" do
     source "#{conf}.erb"
     mode 0600
@@ -35,7 +32,6 @@ end
     group 'root'
     notifies :reload, 'service[sshd]', :immediately
   end
-
 end
 
 service 'sshd' do

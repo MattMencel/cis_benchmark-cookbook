@@ -18,9 +18,7 @@
 #
 
 node[:cis_benchmark][:debian][:disabled_services].each do |svc|
-
   service svc do
     action [:stop, :disable]
   end
-
 end

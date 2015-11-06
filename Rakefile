@@ -1,6 +1,5 @@
 desc 'Creates a new recipe for specified platform.'
 task :create, :platform, :recipe do |_t, args|
-
   platform = args.platform
   recipe = args.recipe
   filename = "#{platform}_#{recipe}"

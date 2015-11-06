@@ -36,6 +36,7 @@ template '/etc/audit/audit.rules' do
   group 'root'
   mode 0644
   notifies :restart, 'service[auditd]'
+  not_if { node[:platform_version] =~ /^7/ }
 end
 
 service 'auditd' do

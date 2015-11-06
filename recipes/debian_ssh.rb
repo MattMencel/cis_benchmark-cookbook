@@ -25,7 +25,6 @@
 end
 
 %w(ssh_config).each do |conf|
-
   template "/etc/ssh/#{conf}" do
     source "#{conf}.erb"
     mode 0600
@@ -33,7 +32,6 @@ end
     group 'root'
     notifies :reload, 'service[ssh]', :immediately
   end
-
 end
 
 service 'ssh' do
