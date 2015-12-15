@@ -43,4 +43,5 @@ service 'auditd' do
   supports restart: true, reload: true, status: true
   provider Chef::Provider::Service::Init::Redhat
   action [:enable, :start]
+  not_if { node[:platform_version] =~ /^7/ }
 end
