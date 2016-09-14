@@ -11,4 +11,4 @@ version '0.0.17'
   supports os
 end
 
-depends 'sysctl', '~> 0.7.0'
+depends 'sysctl'
